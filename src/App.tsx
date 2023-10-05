@@ -1,19 +1,22 @@
-import { ThemeProvider } from './components/theme-provider';
-import { ModeToggle } from './components/mode-toggle';
+import { Routes, Route } from 'react-router-dom';
 
-import ReactPlot from './components/ReactPlot/ReactPlot';
-import { Button } from './components/ui/button';
-
+import Layout from './components/Layout';
+import Dashboard from './pages/Dashboard';
+import Playground from './pages/Playground';
+import Documentation from './pages/Documentation';
+import Statistics from './pages/Statistics';
 import './App.css';
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
-      <ModeToggle />
-      <div className="m-2">
-        <ReactPlot />
-      </div>
-    </ThemeProvider>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Dashboard />} />
+        <Route path="playground" element={<Playground />} />
+        <Route path="documentation" element={<Documentation />} />
+        <Route path="statistics" element={<Statistics />} />
+      </Route>
+    </Routes>
   );
 }
 

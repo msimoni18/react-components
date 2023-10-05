@@ -9,12 +9,10 @@ import { LineChart, Layout, Save, Trash2 } from 'lucide-react';
 
 import DataPanel from './DataPanel';
 import LayoutPanel from './LayoutPanel';
-import { useTheme } from '../theme-provider';
+import { useColor } from '@/lib/useColor';
 
 const ReactPlot = () => {
-  const { theme } = useTheme();
-  const themeHexColor = theme === 'dark' ? '#020817' : '#ffffff';
-  const themeFontHexColor = theme === 'dark' ? '#ffffff' : '#444';
+  const { textColor, bgColor } = useColor();
 
   const { width, ref } = useResizeDetector();
 
@@ -36,7 +34,7 @@ const ReactPlot = () => {
 
   return (
     <div
-      className="border w-full max-w-full flex flex-nowrap"
+      className="border border-zinc-200 dark:border-zinc-800 w-full max-w-full flex grow flex-nowrap shadow-lg dark:shadow-zinc-950"
       style={{ height: height }}
     >
       <div
@@ -59,15 +57,33 @@ const ReactPlot = () => {
             height: height,
             title: 'A Fancy Plot',
             font: {
-              color: themeFontHexColor,
+              color: textColor,
             },
-            paper_bgcolor: themeHexColor,
-            plot_bgcolor: themeHexColor,
+            paper_bgcolor: bgColor,
+            plot_bgcolor: bgColor,
+          }}
+          config={{
+            displaylogo: false,
+            scrollZoom: false,
+            editable: false,
+            staticPlot: false,
+            displayModeBar: false,
+            modeBarButtonsToRemove: [
+              // 'toImage',
+              'zoom2d',
+              'pan2d',
+              'select2d',
+              'lasso2d',
+              'zoomIn2d',
+              'zoomOut2d',
+              'autoScale2d',
+              'resetScale2d',
+            ],
           }}
         />
       </div>
       <div
-        className={cn('border-l w-1/2', {
+        className={cn('border-l dark:border-l-zinc-800 w-1/2', {
           flex: openDataPanel === true,
           hidden: openDataPanel === false,
         })}
@@ -75,14 +91,14 @@ const ReactPlot = () => {
         <DataPanel />
       </div>
       <div
-        className={cn('border-l w-1/2', {
+        className={cn('border-l dark:border-l-zinc-800 w-1/2', {
           flex: openLayoutPanel === true,
           hidden: openLayoutPanel === false,
         })}
       >
         <LayoutPanel />
       </div>
-      <div className="flex flex-col grow-0 gap-2 border-l items-center pt-2 h-full">
+      <div className="flex flex-col grow-0 gap-2 border-l dark:border-l-zinc-800 items-center pt-2 h-full">
         <Tooltip title="Data" placement="left">
           <Button
             variant="ghost"
