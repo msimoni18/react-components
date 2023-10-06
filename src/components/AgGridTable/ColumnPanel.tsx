@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils';
 import type { ColumnPanelProps, Column } from './types';
 
 const ColumnPanel = ({ columns, setColumns }: ColumnPanelProps) => {
+  const [defaultColumns] = React.useState(columns);
   const [searchText, setSearchText] = React.useState('');
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,6 +28,54 @@ const ColumnPanel = ({ columns, setColumns }: ColumnPanelProps) => {
     const newColumns = columns.map((col: Column) =>
       col.name === name ? { ...col, checked: !col.checked } : col,
     );
+    setColumns(newColumns);
+  };
+
+  const sortByName = () => {
+    const newColumns = [...columns];
+
+    newColumns.sort((a, b) => {
+      if (a.name.toLowerCase() < b.name.toLowerCase()) {
+        return -1;
+      }
+      if (a.name.toLowerCase() > b.name.toLowerCase()) {
+        return 1;
+      }
+      return 0;
+    });
+
+    setColumns(newColumns);
+  };
+
+  const sortByChecked = () => {
+    const newColumns = [...columns];
+
+    newColumns.sort((a, b) => {
+      return Number(b.checked) - Number(a.checked);
+    });
+
+    setColumns(newColumns);
+  };
+
+  const resetSort = () => {
+    setColumns(defaultColumns);
+  };
+
+  const selectAll = () => {
+    const newColumns = columns.map(({ name }) => ({
+      name,
+      checked: true,
+    }));
+
+    setColumns(newColumns);
+  };
+
+  const unselectAll = () => {
+    const newColumns = columns.map(({ name }) => ({
+      name,
+      checked: false,
+    }));
+
     setColumns(newColumns);
   };
 
@@ -76,14 +125,42 @@ const ColumnPanel = ({ columns, setColumns }: ColumnPanelProps) => {
         onChange={handleSearch}
       />
       <div className="flex gap-2">
-        <Button variant="outline" className="grow">
+        <Button
+          variant="outline"
+          className="grow hover:bg-zinc-100 hover:dark:bg-zinc-700"
+          onClick={sortByName}
+        >
           Sort by name
         </Button>
-        <Button variant="outline" className="grow">
+        <Button
+          variant="outline"
+          className="grow hover:bg-zinc-100 hover:dark:bg-zinc-700"
+          onClick={sortByChecked}
+        >
           Sort by checked
         </Button>
-        <Button variant="outline" className="grow">
+        <Button
+          variant="outline"
+          className="grow hover:bg-zinc-100 hover:dark:bg-zinc-700"
+          onClick={resetSort}
+        >
           Reset
+        </Button>
+      </div>
+      <div className="flex gap-2">
+        <Button
+          variant="outline"
+          className="grow hover:bg-zinc-100 hover:dark:bg-zinc-700"
+          onClick={selectAll}
+        >
+          Select all
+        </Button>
+        <Button
+          variant="outline"
+          className="grow hover:bg-zinc-100 hover:dark:bg-zinc-700"
+          onClick={unselectAll}
+        >
+          Unselect all
         </Button>
       </div>
       <ul>
