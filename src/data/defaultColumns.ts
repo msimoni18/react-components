@@ -1,0 +1,20 @@
+export const defaultStockColumns = [
+  { checked: true, name: 'Date' },
+  { checked: true, name: 'Open' },
+  { checked: true, name: 'High' },
+  { checked: true, name: 'Low' },
+  { checked: true, name: 'Close' },
+  { checked: true, name: 'Volume' },
+  { checked: true, name: 'Dividends' },
+  { checked: true, name: 'Stock Splits' },
+  { checked: true, name: 'Ticker' },
+  { checked: false, name: 'DUMMY1' },
+  { checked: false, name: 'DUMMY2' },
+  { checked: false, name: 'DUMMY3' },
+  { checked: false, name: 'DUMMY4' },
+  { checked: false, name: 'DUMMY5' },
+  {
+    checked: false,
+    name: 'THIS IS A REALLY LONG NAME FOR A PARAMETER TO CHECK FOR X OVERFLOW',
+  },
+];

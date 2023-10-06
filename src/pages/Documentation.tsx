@@ -2,7 +2,7 @@ import React from 'react';
 import TreeView from '@/components/TreeView';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { filterTreeByValue } from '@/lib/utils';
+import { filterTreeByValue, Node } from '@/lib/utils';
 import pdf from '/sample.pdf';
 
 const treeContent = {
@@ -116,7 +116,7 @@ const treeContent = {
       ],
     },
   ],
-};
+} satisfies Node;
 
 const Documentation = () => {
   const [tree, setTree] = React.useState(treeContent);

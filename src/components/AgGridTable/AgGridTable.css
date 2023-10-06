@@ -1,0 +1,15 @@
+/* Extend ag theme with custom colors */
+/* Colors are consistent with ./src/lib/useColor.ts */
+
+.ag-theme-alpine {
+  /* --ag-header-background-color: #e4e4e7; */
+  /* --ag-background-color: #fafafa; */
+  /* --ag-odd-row-background-color: #f4f4f5; */
+  /* --ag-foreground-color:  */
+  --ag-border-color: none;
+  /* --ag-secondary-border-color:  */
+}
+
+.ag-theme-alpine-dark {
+  --ag-border-color: none;
+}

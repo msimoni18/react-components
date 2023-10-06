@@ -7,7 +7,7 @@ export function cn(...inputs: ClassValue[]) {
 
 export type Node = {
   name: string;
-  type: string;
+  type: 'root' | 'file' | 'folder';
   children?: Node[];
 };
 

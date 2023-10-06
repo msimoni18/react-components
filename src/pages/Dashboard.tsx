@@ -1,5 +1,5 @@
 import React from 'react';
-import StaticPlot from '@/components/StaticPlot/StaticPlot';
+import StaticPlot from '@/components/StaticPlot';
 import {
   Card,
   CardContent,
