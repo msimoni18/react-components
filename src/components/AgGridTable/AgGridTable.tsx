@@ -43,7 +43,7 @@ const AgGridTable = ({ rows, columns }: AgGridTable) => {
 
   const defaultColDef = React.useMemo(
     () => ({
-      flex: 1,
+      // flex: 1,
       minWidth: 100,
       resizable: true,
       sortable: true,
