@@ -12,7 +12,7 @@ import LayoutPanel from './LayoutPanel';
 import { useColor } from '@/lib/useColor';
 
 const ReactPlot = () => {
-  const { textColor, bgColor } = useColor();
+  const { foreground, background } = useColor();
 
   const { width, ref } = useResizeDetector();
 
@@ -34,7 +34,7 @@ const ReactPlot = () => {
 
   return (
     <div
-      className="border border-zinc-200 dark:border-zinc-800 w-full max-w-full flex grow flex-nowrap shadow-lg dark:shadow-zinc-950"
+      className="border w-full max-w-full flex grow flex-nowrap rounded-lg overflow-hidden"
       style={{ height: height }}
     >
       <div
@@ -57,10 +57,10 @@ const ReactPlot = () => {
             height: height,
             title: 'A Fancy Plot',
             font: {
-              color: textColor,
+              color: foreground,
             },
-            paper_bgcolor: bgColor,
-            plot_bgcolor: bgColor,
+            paper_bgcolor: background,
+            plot_bgcolor: background,
           }}
           config={{
             displaylogo: false,

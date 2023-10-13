@@ -9,13 +9,13 @@ type Props = {
 };
 
 const StaticPlot = ({ height = 400 }: Props) => {
-  const { textColor, bgColor } = useColor();
+  const { foreground, background } = useColor();
 
   const { width, ref } = useResizeDetector();
 
   return (
     <div
-      className="border border-zinc-200 dark:border-zinc-800 flex grow items-center overflow-hidden shadow-lg dark:shadow-zinc-950"
+      className="border flex grow items-center rounded-lg overflow-hidden"
       style={{ height: height }}
       ref={ref}
     >
@@ -35,10 +35,10 @@ const StaticPlot = ({ height = 400 }: Props) => {
           height: height,
           title: 'A Fancy Plot',
           font: {
-            color: textColor,
+            color: foreground,
           },
-          paper_bgcolor: bgColor,
-          plot_bgcolor: bgColor,
+          paper_bgcolor: background,
+          plot_bgcolor: background,
         }}
         config={{
           displaylogo: false,

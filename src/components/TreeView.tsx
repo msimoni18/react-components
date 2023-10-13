@@ -69,7 +69,7 @@ export default function TreeView({ tree, setSelectedDocument }: Props) {
         {node.children && node.children.length > 0 && !isCollapsed && (
           <ul
             className={cn(
-              'border-l border-dotted dark:border-zinc-100',
+              'border-l border-dotted border-foreground',
               isCollapsed ? 'hidden' : 'block',
             )}
           >

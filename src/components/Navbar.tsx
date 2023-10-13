@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { LayoutDashboard, ScatterChart, FileText, Rocket } from 'lucide-react';
+import { LayoutDashboard, ScatterChart, FileText } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { ModeToggle } from './ModeToggle';
 import logo from '../assets/python.png';
 
-const iconStyle = 'mr-4 h-6 w-6';
+const iconStyle = 'mr-2 h-4 w-4';
 
 const routes = [
   {
@@ -26,12 +26,6 @@ const routes = [
     title: 'Docs',
     icon: <FileText className={iconStyle} />,
   },
-  {
-    id: 3,
-    route: '/statistics',
-    title: 'Statistics',
-    icon: <Rocket className={iconStyle} />,
-  },
 ];
 
 const Navbar = () => {
@@ -42,7 +36,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex items-center justify-between border-b dark:border-zinc-800 w-screen px-4 py-2">
+    <nav className="flex items-center justify-between border-b w-screen px-4 py-2">
       <div className="flex items-center gap-4">
         <img width={25} height={25} src={logo} alt="logo"></img>
         <h1 className="text-2xl">ABCD Dashboard</h1>
@@ -52,11 +46,12 @@ const Navbar = () => {
           <Link key={route.id} to={route.route}>
             <div
               className={cn(
-                'h-full text-zinc-400 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100',
-                selected === route.id && 'text-zinc-900 dark:text-zinc-100',
+                'flex items-center h-full text-muted-foreground hover:text-foreground',
+                selected === route.id && 'text-foreground',
               )}
               onClick={() => handleClick(route.id)}
             >
+              {route.icon}
               <h2 className="text-xl">{route.title}</h2>
             </div>
           </Link>

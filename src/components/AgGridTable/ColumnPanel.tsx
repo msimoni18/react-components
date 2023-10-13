@@ -125,41 +125,21 @@ const ColumnPanel = ({ columns, setColumns }: ColumnPanelProps) => {
         onChange={handleSearch}
       />
       <div className="flex gap-2">
-        <Button
-          variant="outline"
-          className="grow hover:bg-zinc-100 hover:dark:bg-zinc-700"
-          onClick={sortByName}
-        >
+        <Button variant="outline" className="grow" onClick={sortByName}>
           Sort by name
         </Button>
-        <Button
-          variant="outline"
-          className="grow hover:bg-zinc-100 hover:dark:bg-zinc-700"
-          onClick={sortByChecked}
-        >
+        <Button variant="outline" className="grow" onClick={sortByChecked}>
           Sort by checked
         </Button>
-        <Button
-          variant="outline"
-          className="grow hover:bg-zinc-100 hover:dark:bg-zinc-700"
-          onClick={resetSort}
-        >
+        <Button variant="outline" className="grow" onClick={resetSort}>
           Reset
         </Button>
       </div>
       <div className="flex gap-2">
-        <Button
-          variant="outline"
-          className="grow hover:bg-zinc-100 hover:dark:bg-zinc-700"
-          onClick={selectAll}
-        >
+        <Button variant="outline" className="grow" onClick={selectAll}>
           Select all
         </Button>
-        <Button
-          variant="outline"
-          className="grow hover:bg-zinc-100 hover:dark:bg-zinc-700"
-          onClick={unselectAll}
-        >
+        <Button variant="outline" className="grow" onClick={unselectAll}>
           Unselect all
         </Button>
       </div>

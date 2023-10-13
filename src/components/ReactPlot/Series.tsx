@@ -6,7 +6,7 @@ import { Trash2 } from 'lucide-react';
 
 const Series = () => {
   return (
-    <div className="flex flex-col gap-2 p-2 border-l border-dotted border-slate-500 mb-6">
+    <div className="flex flex-col gap-2 px-2 border-l border-dotted border-muted-foreground mb-6">
       <Label>Chart Type</Label>
       <RadioGroup defaultValue="scatter" orientation="horizontal">
         <div className="flex items-center space-x-2">

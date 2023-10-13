@@ -17,7 +17,7 @@ const LayoutPanel = () => {
     <div className="w-full flex flex-col gap-2 p-4 overflow-scroll">
       <h1 className="font-bold">Layout</h1>
       <Separator />
-      <div className="flex flex-col gap-2 p-2 border-l border-dotted border-slate-500 mb-6">
+      <div className="flex flex-col gap-2 px-2 border-l border-dotted border-muted-foreground mb-6">
         <h2 className="font-semibold">Labels</h2>
         <div className="flex items-center gap-2">
           <Label className="basis-1/4">Title</Label>
@@ -41,14 +41,14 @@ const LayoutPanel = () => {
           />
         </div>
       </div>
-      <div className="flex flex-col gap-2 p-2 border-l border-dotted border-slate-500 mb-6">
+      <div className="flex flex-col gap-2 px-2 border-l border-dotted border-muted-foreground mb-6">
         <h2 className="font-semibold">Legend</h2>
         <div className="flex items-center gap-2">
           <Label className="basis-1/4">Show</Label>
           <Checkbox onCheckedChange={(checked) => console.log(checked)} />
         </div>
       </div>
-      <div className="flex flex-col gap-2 p-2 border-l border-dotted border-slate-500 mb-6">
+      <div className="flex flex-col gap-2 px-2 border-l border-dotted border-muted-foreground mb-6">
         <h2 className="font-semibold">Gridlines</h2>
         <div className="flex items-center gap-2">
           <Label className="basis-1/4">Show</Label>
@@ -115,7 +115,7 @@ const LayoutPanel = () => {
           </Select>
         </div>
       </div>
-      <div className="flex flex-col gap-2 p-2 border-l border-dotted border-slate-500 mb-6">
+      <div className="flex flex-col gap-2 px-2 border-l border-dotted border-muted-foreground mb-6">
         <h2 className="font-semibold">Chart</h2>
         <div className="flex items-center gap-2">
           <Label className="basis-1/4">Height</Label>
@@ -125,7 +125,7 @@ const LayoutPanel = () => {
           <Label className="basis-1/4">Font size</Label>
         </div>
       </div>
-      <div className="flex flex-col gap-4 p-2 border-l border-dotted border-slate-500 mb-6">
+      <div className="flex flex-col gap-4 px-2 border-l border-dotted border-muted-foreground mb-6">
         <h2 className="font-semibold">Margin</h2>
         <div className="flex items-center gap-2">
           <Label className="basis-1/4">Top</Label>

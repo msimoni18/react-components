@@ -138,7 +138,7 @@ const Documentation = () => {
 
   return (
     <div className="flex h-full">
-      <div className="w-1/4 p-2 pb-6 border-r dark:border-r-zinc-800 no-scrollbar overflow-scroll">
+      <div className="w-1/4 p-2 pb-6 border-r no-scrollbar overflow-scroll">
         <Label htmlFor="search-tree">Search</Label>
         <Input
           type="text"

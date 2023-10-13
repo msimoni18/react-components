@@ -99,7 +99,7 @@ const AgGridTable = ({ rows, columns }: AgGridTable) => {
   }, []);
 
   return (
-    <div className="flex h-[400px] w-full border border-zinc-200 dark:border-zinc-800 shadow-lg dark:shadow-zinc-950">
+    <div className="flex h-[400px] w-full border rounded-lg overflow-hidden">
       <div
         className={cn(
           'w-full',
@@ -131,7 +131,7 @@ const AgGridTable = ({ rows, columns }: AgGridTable) => {
       >
         <FilterPanel columns={parentColumns} />
       </div>
-      <div className="flex flex-col grow-0 gap-2 border-l dark:border-l-zinc-800 items-center pt-2 h-full">
+      <div className="flex flex-col grow-0 gap-2 border-l items-center pt-2 h-full">
         <Tooltip title="Columns" placement="left">
           <Button
             variant="ghost"

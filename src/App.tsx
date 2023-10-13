@@ -4,7 +4,6 @@ import Layout from './components/Layout';
 import Dashboard from './pages/Dashboard';
 import Playground from './pages/Playground';
 import Documentation from './pages/Documentation';
-import Statistics from './pages/Statistics';
 import './App.css';
 
 function App() {
@@ -14,7 +13,6 @@ function App() {
         <Route index element={<Dashboard />} />
         <Route path="playground" element={<Playground />} />
         <Route path="documentation" element={<Documentation />} />
-        <Route path="statistics" element={<Statistics />} />
       </Route>
     </Routes>
   );
