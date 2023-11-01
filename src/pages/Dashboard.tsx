@@ -10,6 +10,8 @@ import {
 } from '@/components/ui/card';
 import CollapsibleTable from '@/components/CollapsibleTable';
 import ShadcnTable from '@/components/ShadcnTable';
+import ClickablePlotly from '@/components/ClickablePlotly';
+import RechartBarChart from '@/components/RechartBarChart';
 
 const Dashboard = () => {
   return (
@@ -52,11 +54,15 @@ const Dashboard = () => {
           </CardFooter>
         </Card>
       </div>
-      <div className="flex gap-8 xl:flex-row sm:flex-col">
+      <div className="flex gap-8 flex-col lg:flex-row">
         <StaticPlot />
         <StaticPlot />
       </div>
-      <div className="flex gap-8 xl:flex-row sm:flex-col">
+      <div className="flex gap-8 flex-col lg:flex-row">
+        <RechartBarChart />
+        <RechartBarChart />
+      </div>
+      <div className="flex gap-8 flex-col lg:flex-row">
         <StaticPlot />
         <StaticPlot />
         <StaticPlot />
@@ -66,6 +72,9 @@ const Dashboard = () => {
       </div>
       <div>
         <CollapsibleTable />
+      </div>
+      <div>
+        <ClickablePlotly />
       </div>
     </div>
   );
