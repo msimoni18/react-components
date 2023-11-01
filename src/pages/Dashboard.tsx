@@ -8,6 +8,8 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import CollapsibleTable from '@/components/CollapsibleTable';
+import ShadcnTable from '@/components/ShadcnTable';
 
 const Dashboard = () => {
   return (
@@ -58,6 +60,12 @@ const Dashboard = () => {
         <StaticPlot />
         <StaticPlot />
         <StaticPlot />
+      </div>
+      <div>
+        <ShadcnTable />
+      </div>
+      <div>
+        <CollapsibleTable />
       </div>
     </div>
   );
