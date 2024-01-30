@@ -1,67 +1,61 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { LayoutDashboard, ScatterChart, FileText } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { ModeToggle } from './ModeToggle';
-import logo from '../assets/python.png';
+import { NavLink } from 'react-router-dom';
+import { Button } from './ui/button';
+import { Label } from './ui/label';
+import { ModeToggle } from './mode-toggle';
+import { LayoutDashboard, ScatterChart, FileText } from 'lucide-react';
 
-const iconStyle = 'mr-2 h-4 w-4';
-
-const routes = [
-  {
-    id: 0,
-    route: '/',
-    title: 'Dashboard',
-    icon: <LayoutDashboard className={iconStyle} />,
-  },
-  {
-    id: 1,
-    route: '/playground',
-    title: 'Playground',
-    icon: <ScatterChart className={iconStyle} />,
-  },
-  {
-    id: 2,
-    route: '/documentation',
-    title: 'Docs',
-    icon: <FileText className={iconStyle} />,
-  },
-];
-
-const Navbar = () => {
-  const [selected, setSelected] = React.useState(0);
-
-  const handleClick = (index: number) => {
-    setSelected(index);
-  };
-
+export const Navbar = () => {
   return (
-    <nav className="flex items-center justify-between border-b w-screen px-4 py-2">
-      <div className="flex items-center gap-4">
-        <img width={25} height={25} src={logo} alt="logo"></img>
-        <h1 className="text-2xl">ABCD Dashboard</h1>
+    <div className="flex justify-between items-center fixed top-0 border-b bg-background px-4 h-12 w-full z-50">
+      <div className="flex gap-10 items-center">
+        <Label className="text-xl">My Dashboard</Label>
+        <div className="flex gap-4 items-center">
+          <NavLink to="/">
+            {({ isActive }) => (
+              <Button
+                variant="ghost"
+                className={cn(
+                  'text-md px-1 rounded-none hover:bg-background hover:text-primary hover:border-b-primary hover:border-b-2 flex gap-2 items-center',
+                  isActive ? 'text-primary border-b-primary border-b-2' : '',
+                )}
+              >
+                <LayoutDashboard className="w-4 h-4" />
+                Dashboard
+              </Button>
+            )}
+          </NavLink>
+          <NavLink to="docs">
+            {({ isActive }) => (
+              <Button
+                variant="ghost"
+                className={cn(
+                  'text-md px-1 rounded-none hover:bg-background hover:text-primary hover:border-b-primary hover:border-b-2 flex gap-2 items-center',
+                  isActive ? 'text-primary border-b-primary border-b-2' : '',
+                )}
+              >
+                <FileText className="w-4 h-4" />
+                Documents
+              </Button>
+            )}
+          </NavLink>
+          <NavLink to="statistics">
+            {({ isActive }) => (
+              <Button
+                variant="ghost"
+                className={cn(
+                  'text-md px-1 rounded-none hover:bg-background hover:text-primary hover:border-b-primary hover:border-b-2 flex gap-2 items-center',
+                  isActive ? 'text-primary border-b-primary border-b-2' : '',
+                )}
+              >
+                <ScatterChart className="w-4 h-4" />
+                Statistics
+              </Button>
+            )}
+          </NavLink>
+        </div>
       </div>
-      <div className="flex gap-8">
-        {routes.map((route) => (
-          <Link key={route.id} to={route.route}>
-            <div
-              className={cn(
-                'flex items-center h-full text-muted-foreground hover:text-foreground',
-                selected === route.id && 'text-foreground',
-              )}
-              onClick={() => handleClick(route.id)}
-            >
-              {route.icon}
-              <h2 className="text-xl">{route.title}</h2>
-            </div>
-          </Link>
-        ))}
-      </div>
-      <div>
-        <ModeToggle />
-      </div>
-    </nav>
+      <ModeToggle />
+    </div>
   );
 };
-
-export default Navbar;

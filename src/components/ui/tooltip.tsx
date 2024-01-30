@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 
 const TooltipProvider = TooltipPrimitive.Provider;
 
-const TooltipBase = TooltipPrimitive.Root;
+const Tooltip = TooltipPrimitive.Root;
 
 const TooltipTrigger = TooltipPrimitive.Trigger;
 
@@ -25,25 +25,4 @@ const TooltipContent = React.forwardRef<
 ));
 TooltipContent.displayName = TooltipPrimitive.Content.displayName;
 
-export { TooltipBase, TooltipTrigger, TooltipContent, TooltipProvider };
-
-type TooltipProps = {
-  title: string;
-  placement?: 'top' | 'right' | 'bottom' | 'left';
-  children: React.ReactNode;
-};
-
-const Tooltip = ({ title, placement = 'top', children }: TooltipProps) => {
-  return (
-    <TooltipProvider delayDuration={0}>
-      <TooltipBase>
-        <TooltipTrigger asChild>{children}</TooltipTrigger>
-        <TooltipContent side={placement}>
-          <p>{title}</p>
-        </TooltipContent>
-      </TooltipBase>
-    </TooltipProvider>
-  );
-};
-
-export { Tooltip };
+export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider };
